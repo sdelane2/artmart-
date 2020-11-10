@@ -1,0 +1,2 @@
+class ReviewedArtworksController < ApplicationController
+end

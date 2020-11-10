@@ -1,0 +1,12 @@
+<%= form_for @review do |f| %>
+    <%= f.label :recommend %>?
+    Yes : <%= f.radio_button :recommend, true %> 
+    No : <%= f.radio_button :recommend, false %>
+    <br>
+    Please write your review below:<br>
+    <%= f.text_field :text %>
+    <br>
+    <br>
+    <%= f.submit %>
+<% end %>
+
