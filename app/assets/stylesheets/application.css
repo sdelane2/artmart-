@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+ index-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  
+  }
+  
+  .index-tile {
+    padding: 50px;
+    margin: 0px 0px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 25px;
+  }
+  
+  .index-tile:hover {
+    border: 3px solid rgb(252, 252, 252); 
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .index-tile h3 a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 1200;
+  }
+  
+  .index-img {
+    max-width: 100px;
+  }
+  
