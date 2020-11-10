@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     def create
         @review = Review.create(review_params)
         if @review.valid?
-            redirect_to review_path(@review)
+            redirect_to artwork_path(@review.artwork)
         else
             flash[:review_errors] = @review.errors.full_messages
             redirect_to new_review_path

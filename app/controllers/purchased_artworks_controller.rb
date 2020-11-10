@@ -1,2 +1,0 @@
-class PurchasedArtworksController < ApplicationController
-end

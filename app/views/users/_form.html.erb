@@ -1,5 +1,5 @@
 <% if flash[:user_errors] %>
-  <% flash[:usre_errors].each do |error| %>
+  <% flash[:user_errors].each do |error| %>
     <p style="color:red;"><%= error %></p>
   <% end %>
 <% end  %>
@@ -15,7 +15,7 @@
     <%= f.email_field :email %>
     <br>
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password_digest %>
     <br>
     <br>
     <%= f.submit %>

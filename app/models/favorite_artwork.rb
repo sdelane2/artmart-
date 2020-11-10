@@ -1,4 +1,4 @@
-class PurchasedArtwork < ApplicationRecord
+class FavoriteArtwork < ApplicationRecord
     belongs_to :artwork 
     belongs_to :user
 end
