@@ -13,20 +13,90 @@
  *= require_tree .
  *= require_self
  */
- index-container {
+
+
+ body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+ /* ================================================== */
+ /*                     NAVBAR                         */
+ /* ================================================== */
+
+ .nav {
+  background-color: #484848;
+  
+  height: 28px;
+  width: 83.5%;
+  margin: 0px auto;
+  padding: 0px;
+}
+
+ .nav li {
+   /* border: 1px solid black; */
+   display: inline-block;
+   line-height: 28px;
+   padding: 0px 15px;
+   margin: 0px;
+
+ }
+
+ .nav li:hover {
+   background-color: #1b1b1b;
+   transition: 1s;
+ }
+
+ .nav li a {
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: 400;
+}
+
+
+.right {
+  float: right;
+}
+
+ /* ================================================== */
+ /*                   BANNER/LOGO                      */
+ /* ================================================== */
+
+ .logo > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 83.5%;
+}
+
+ /* ================================================== */
+ /*                    BACKGROUND                      */
+ /* ================================================== */
+
+.container {
+  margin: 5px auto;
+  max-width: 89%;
+  padding: 10px;
+  border-radius: 25px;
+  height: 100%;
+}
+
+ /* ================================================== */
+ /*                     INDEX                          */
+ /* ================================================== */
+
+  .index-container {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-  
+    max-width: 75%;
+    margin: auto;
   }
   
   .index-tile {
-    padding: 50px;
-    margin: 0px 0px;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.2);
-    padding: 20px;
     border-radius: 25px;
+    float: left
   }
   
   .index-tile:hover {
@@ -41,6 +111,48 @@
   }
   
   .index-img {
-    max-width: 100px;
+    width: 250px;
+    height: 250px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
+ /* ================================================== */
+ /*                     SHOW PAGE                      */
+ /* ================================================== */
+
+  .show-container {
+    padding: 10px;
+    background-color: #eaeaea;
+    border-radius: 0px;
+    border-bottom: 2px solid #484848;
+    width: 73%;
+    margin: auto;
+  }
+  
+
+ /* ================================================== */
+ /*                      FORMS                         */
+ /* ================================================== */
+  
+ .form-container {
+  max-width: 72%;
+  margin: 0px auto;
+  background-color: #eaeaea;
+  padding: 20px;
+  border-radius: 0px;
+  text-align: left;
+  border-bottom: 2px solid #484848;
+}
+
+.form-btn {
+  background-color: #eaeaea;
+  margin-top: 10px;
+  border-radius: 25px;
+}
+
+.form-input {
+  margin-top: 10px;
+}
+

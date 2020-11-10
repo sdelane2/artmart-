@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ArtMart</title>
+    <title>ArtMart - Unfold The Beauty</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,23 @@
   </head>
 
   <body>
+
+       <div class='container'>
+       <p align="center">
+        <ul class= "nav">
+          <li><%= link_to "explore art ", artworks_path %></li>
+          <li><%= link_to "create account", new_user_path %></li>
+          <li><%= link_to "review art", new_review_path %></li>
+
+          <% if @current_user %>
+            <li class="right"><%= link_to "sign up", new_user_path %></li>
+          <% end %>
+        </ul>
+        <p class="logo">
+        <%= image_tag "logo/artmart_banner.gif" %></p>
+       </div>
+
     <%= yield %>
+    
   </body>
 </html>

@@ -1,3 +1,5 @@
-<p><img src=<%="#{@artwork.image_url}"%>></p>
-<%= @artwork.artist_name %>
-<%= @artwork.title %>
+<div class="show-container">
+    <h1><%= @artwork.title %></h1><br>
+    Artist: <%= @artwork.artist_name %>
+    <p><img src=<%="#{@artwork.image_url}"%>></p>
+</div>

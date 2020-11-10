@@ -2,8 +2,8 @@
 <div class="index-container">
   <% @artworks.each do |artwork| %>
     <div class="index-tile">
-      <h3><%= link_to artwork.artist_name, artwork_path(artwork.id) %></h3>
-      <%= image_tag artwork.image_url, class: "index-img" %>
+      <h3><%= link_to (image_tag artwork.image_url, class: "index-img"), artwork_path(artwork.id) %></h3>
     </div>
   <% end %>
 </div>
+
