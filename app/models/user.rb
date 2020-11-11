@@ -3,6 +3,8 @@ class User < ApplicationRecord
     has_many :favorite_artworks
     has_many :artworks, through: :favorite_artworks
     has_many :artworks, through: :reviews 
+    has_many :appointments
+    has_many :artworks, through: :appointments
 
     has_secure_password
 

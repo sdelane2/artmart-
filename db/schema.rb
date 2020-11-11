@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_192124) do
+ActiveRecord::Schema.define(version: 2020_11_11_221939) do
+
+  create_table "appointments", force: :cascade do |t|
+    t.integer "artwork_id"
+    t.integer "user_id"
+    t.date "date"
+    t.time "time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artwork_id"], name: "index_appointments_on_artwork_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
 
   create_table "artworks", force: :cascade do |t|
     t.string "image_url"
@@ -23,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_192124) do
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "availability"
   end
 
   create_table "favorite_artworks", force: :cascade do |t|
@@ -33,10 +45,10 @@ ActiveRecord::Schema.define(version: 2020_11_10_192124) do
   create_table "reviews", force: :cascade do |t|
     t.text "text"
     t.boolean "recommend"
-    t.integer "user_id"
-    t.integer "artwork_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "artwork_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

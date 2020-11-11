@@ -3,6 +3,19 @@ class UsersController < ApplicationController
     
     def show
         @user = User.find(params[:id])
+        
+        sorted_appointments = @user.appointments.sort_by { |appt| appt.date }
+        @appointments = sorted_appointments.map do |appt|
+          {
+            date: appt.date.strftime('%B %-d, %Y'),
+            time: appt.time.strftime('%l:%M %P'),
+            artwork: appt.artwork.title
+          }
+        end
+
+        
+
+        render :show
     end
 
     def new

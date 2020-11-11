@@ -4,6 +4,21 @@
     </div>
     Status: Collector<br>
     E-mail: <%= @user.email %>
+    
+    <p>
+        Art Viewing History: 
+
+        <ul>
+            <% @appointments.each do |appt|%>
+                <li>Artwork Title: <%= appt[:artwork] %> (<%= appt[:date] %> @ <%= appt[:time] %>)</li>
+            <% end %>
+        </ul>       
+
+        
+        <% @user.appointments do |appointment| %>
+            <%= appointment.artwork.title %>
+        <% end %>
+    </p>
 
     <p>
         <div class="show-btns">
@@ -13,5 +28,6 @@
             <%= button_to "Delete Profile", destroy_user_path, method: :delete %>
         </div>
     </p>
+
 
 </div>

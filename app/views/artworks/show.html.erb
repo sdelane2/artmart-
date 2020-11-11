@@ -14,13 +14,17 @@
             <%= button_to "Add to Favorites" , {:controller => 'favorite_artworks', :action => 'create', "favorite_artwork" => {:artwork_id => @artwork.id, :user_id => @current_user.id}}, {:method => :post} %>
         </div>
         <div class="show-btns">
-            <%= link_to "Review this artwork", new_artwork_review_path(@artwork) %>
+            <%= button_to "Review This Artwork", new_artwork_review_path(@artwork), method: :get %>
+        </div>
+        <div class="show-btns">
+            <%= button_to "Book A Viewing", new_appointment_path, method: :get  %>
         </div>
 
         <div class="show-img">
             <p><img src=<%="#{@artwork.image_url}"%>></p>
         </div>
-
+        
+        <h6>Purchases made through viewings only.</h6>
         
         <% @artwork.reviews.each do |review| %>
             <p>"<%= review.text %>"</p>
