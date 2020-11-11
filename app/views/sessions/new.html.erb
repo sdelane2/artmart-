@@ -1,6 +1,9 @@
 <div class="form-container">
   <h3>Login</h3>
-  <div class="form-text">
+
+  
+  <div class="form-login">
+
     <%= form_for(:session, url: login_path) do |f| %>
 
       <%= f.label :email %>
@@ -11,9 +14,15 @@
 
       <%= f.submit "Log in" %>
     <% end %>
+
+    <% if flash[:login_error] %>
+     <p><%= flash[:login_error]%></p>
+  <% end %>
+
+
     </div>
 
 
-    <p class="form-text">New user? <%= link_to "Sign up now!", new_user_path %></p>
+    <p class="form-login">New user? <%= link_to "Sign up now!", new_user_path %></p>
   
 </div>

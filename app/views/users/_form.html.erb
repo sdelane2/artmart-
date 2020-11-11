@@ -1,14 +1,8 @@
 <div class="new-user-form">
-<% if flash[:user_errors] %>
-  <% flash[:user_errors].each do |error| %>
-    <p style="color:red;"><%= error %></p>
-  <% end %>
-<% end  %>
-
   <%= form_for @user do |f| %>
     <div class="form">
       <%= f.label :first_name %><br>
-      <%= f.text_field :first_name, class:"form" %>
+      <%= f.text_field :first_name %>
       <br>
       <%= f.label :last_name %><br>
       <%= f.text_field :last_name %>
@@ -20,7 +14,13 @@
       <%= f.password_field :password %>
       
       <p><%= f.submit %></p>
-    </div>
+
+      <% if flash[:user_errors] %>
+        <% flash[:user_errors].each do |error| %>
+          <%= error %>.<br>
+        <% end %>
+      <% end  %>
+
   <% end %>
 </div>
 
