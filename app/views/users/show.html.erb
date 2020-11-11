@@ -2,9 +2,16 @@
     <div class="show-name">
         <h1><%= @user.first_name %> <%= @user.last_name %> </h1>
     </div>
-    Status: <%= @user.status %><br>
+    Status: Collector<br>
     E-mail: <%= @user.email %>
 
-    <p><%= button_to "Update Profile", edit_user_path, method: :get %></p>
+    <p>
+        <div class="show-btns">
+            <%= button_to "Update Profile", edit_user_path, method: :get %>
+        </div>
+        <div class="show-btns">
+            <%= button_to "Delete Profile", destroy_user_path, method: :delete %>
+        </div>
+    </p>
 
 </div>
