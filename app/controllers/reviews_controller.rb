@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+    before_action :set_review, only: [:show, :edit, :update, :destroy]
+    before_action :set_artwork
+
 
     def new
         @review = Review.new
@@ -9,13 +12,13 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        @review = Review.create(review_params)
-        @review.user = current_user
-        if @review.valid?
-            redirect_to review_path(@review.artwork)
+        @review = Review.new(review_params)
+        @review.user_id = @current_user.id
+        @review.artwork_id = @artwork.id
+        if @review.save
+            redirect_to @artwork
         else
-            flash[:review_errors] = @review.errors.full_messages
-            redirect_to new_review_path
+            render 'new'
         end
     end
 
@@ -31,8 +34,16 @@ class ReviewsController < ApplicationController
 
     private
 
-        def review_params
-            params.require(:review).permit(:text, :recommend).merge(:user_id => current_user.id)
-        end
+    def set_review
+        @review = Review.find(params[:id])
+    end
+  
+    def set_artwork
+        @artwork = Artwork.find(params[:artwork_id])
+    end
+
+    def review_params
+        params.require(:review).permit(:text, :recommend, :user_id, :artwork_id)
+    end
 
 end

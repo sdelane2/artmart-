@@ -18,8 +18,7 @@
 
 
           <% if @current_user %>
-            <li><%= link_to "my favorites", new_user_path %></li> |
-            <li><%= link_to "review art", new_review_path %></li> |
+            <li><%= link_to "my favorites", user_path(@current_user) %></li> |
             <li class="right">| <%= link_to "log out", logout_path, method: :delete %> |</li>
             <li class="right">welcome, <%= @current_user.first_name %></li> 
           <% else %>

@@ -1,2 +1,0 @@
-class ReviewedArtworksController < ApplicationController
-end

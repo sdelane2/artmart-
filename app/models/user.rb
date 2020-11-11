@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_many :reviews
     has_many :favorite_artworks
     has_many :artworks, through: :favorite_artworks
+    has_many :artworks, through: :reviews 
 
     has_secure_password
 

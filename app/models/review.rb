@@ -1,7 +1,6 @@
 class Review < ApplicationRecord
     belongs_to :user
-    has_many :reviewed_artworks
-    has_many :artworks, through: :reviewed_artworks
+    belongs_to :artwork
 
-    validates :text, length: { minimum: 100 }
+    # validates :text, length: { minimum: 100 }
 end
