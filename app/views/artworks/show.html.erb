@@ -3,5 +3,5 @@
     Artist: <%= @artwork.artist_name %>
     <p><img src=<%="#{@artwork.image_url}"%>></p>
     <%=button_to "Review this artwork", new_review_path, method: :get  %>
+    <%=  button_to 'Add this artwork to your favorites' , {:controller => 'favorite_artworks', :action => 'create', "favorite_artwork" => {:artwork_id => @artwork.id, :user_id => @current_user.id}}, {:method => :post} %>
 </div>
-<%=  button_to '<' ,{:controller => 'favorite_artworks', :action => 'create', :artwork_id => @artwork.id, :user_id => @current_user.id}, {:method => :post} %>
