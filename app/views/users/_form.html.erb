@@ -1,23 +1,26 @@
+<div class="new-user-form">
 <% if flash[:user_errors] %>
   <% flash[:user_errors].each do |error| %>
     <p style="color:red;"><%= error %></p>
   <% end %>
 <% end  %>
 
-<%= form_for @user do |f| %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, class:"form" %>
-    <br>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-    <br>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-    <br>
-    <%= f.label :password %>
-    <%= f.password_field :password_digest %>
-    <br>
-    <br>
-    <%= f.submit %>
-<% end %>
+  <%= form_for @user do |f| %>
+    <div class="form">
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name, class:"form" %>
+      <br>
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name %>
+      <br>
+      <%= f.label :email %><br>
+      <%= f.email_field :email %>
+      <br>
+      <%= f.label :password %><br>
+      <%= f.password_field :password %>
+      
+      <p><%= f.submit %></p>
+    </div>
+  <% end %>
+</div>
 

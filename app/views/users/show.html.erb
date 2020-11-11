@@ -1,8 +1,10 @@
 <div class="show-container">
-    <h1><%= @user.first_name %> <%= @user.last_name %> </h1>
-    <%@user.artworks.each do |artwork| %>
-    <h1><%= artwork.title %></h1><br>
-    Artist: <%= artwork.artist_name %>
-    <p><img src=<%="#{artwork.image_url}"%>></p>
-    <% end%>
+    <div class="show-name">
+        <h1><%= @user.first_name %> <%= @user.last_name %> </h1>
+    </div>
+    Status: <%= @user.status %><br>
+    E-mail: <%= @user.email %>
+
+    <p><%= button_to "Update Profile", edit_user_path, method: :get %></p>
+
 </div>

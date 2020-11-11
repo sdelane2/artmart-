@@ -1,5 +1,8 @@
 class FavoriteArtworksController < ApplicationController
     
+    def index
+        @favoriteartworks = FavoriteArtwork.all
+    end
     
     def new
         @favoriteartwork = FavoriteArtwork.new
@@ -7,7 +10,7 @@ class FavoriteArtworksController < ApplicationController
 
     def create
         @favorite_artwork = FavoriteArtwork.create(get_params)
-        redirect_to user_path(@favorite_artwork.user)
+        redirect_to favorite_artwork_path(@favorite_artwork)
     end
 
 

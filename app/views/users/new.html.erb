@@ -1,5 +1,9 @@
 <div class="form-container">
-    <h1>Create A New Account</h1>
-
+    <div class="form-title">
+        <h3>Create A New Account</h3>
+    </div>
     <%= render "form" %>
+    <div class="form-title">
+       <p class="form-text"> Already have an account? <%= link_to "Login", new_login_path %></p>
+    </div>
 </div>

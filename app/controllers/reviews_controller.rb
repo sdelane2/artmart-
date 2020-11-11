@@ -4,10 +4,15 @@ class ReviewsController < ApplicationController
         @review = Review.new
     end
 
+    def show
+        @review = Review.find(params)
+    end
+
     def create
         @review = Review.create(review_params)
+        @review.user = current_user
         if @review.valid?
-            redirect_to artwork_path(@review.artwork)
+            redirect_to review_path(@review.artwork)
         else
             flash[:review_errors] = @review.errors.full_messages
             redirect_to new_review_path
@@ -27,7 +32,7 @@ class ReviewsController < ApplicationController
     private
 
         def review_params
-            params.require(:review).permit(:name, :age, :vip_status)
+            params.require(:review).permit(:text, :recommend).merge(:user_id => current_user.id)
         end
 
 end

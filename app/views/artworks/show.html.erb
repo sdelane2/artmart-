@@ -1,7 +1,29 @@
 <div class="show-container">
-    <h1><%= @artwork.title %></h1><br>
-    Artist: <%= @artwork.artist_name %>
-    <p><img src=<%="#{@artwork.image_url}"%>></p>
-    <%=button_to "Review this artwork", new_review_path, method: :get  %>
-    <%=  button_to 'Add this artwork to your favorites' , {:controller => 'favorite_artworks', :action => 'create', "favorite_artwork" => {:artwork_id => @artwork.id, :user_id => @current_user.id}}, {:method => :post} %>
+    
+    <h1><%= @artwork.title %></h1>
+        <p>
+            Artist: <%= @artwork.artist_name %><br>
+            Year: <%= @artwork.year %><br>
+            Gallery:  <%= @artwork.gallery %><br>
+            Medium: <%= @artwork.medium %><br>
+            Dimensions: <%= @artwork.dimensions %><br>
+            Price: $<%= @artwork.price %><br>
+        </p>
+
+        <div class="show-btns">
+            <%= button_to "Add to Favorites" , {:controller => 'favorite_artworks', :action => 'create', "favorite_artwork" => {:artwork_id => @artwork.id, :user_id => @current_user.id}}, {:method => :post} %>
+        </div>
+
+        <div class="show-btns">
+            <%= button_to "Review this artwork", new_review_path, method: :get  %>
+        </div>
+
+        <div class="show-img">
+            <p><img src=<%="#{@artwork.image_url}"%>></p>
+        </div>
+
+        <h3>Write a Review:</h3>
+        <%= render "reviews/form" %>
+       
 </div>
+

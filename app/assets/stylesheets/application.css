@@ -25,7 +25,7 @@
 
  .nav {
   background-color: #484848;
-  
+  font-size: 0.9em;
   height: 28px;
   width: 83.5%;
   margin: 0px auto;
@@ -55,6 +55,7 @@
 
 .right {
   float: right;
+  color: whitesmoke;
 }
 
  /* ================================================== */
@@ -131,6 +132,21 @@
     margin: auto;
   }
   
+  .show-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
+  .show-btns {
+    display: inline-block;
+  }
+  
+  .show-name {
+    text-transform: capitalize;
+  }
+  
 
  /* ================================================== */
  /*                      FORMS                         */
@@ -155,3 +171,32 @@
 .form-input {
   margin-top: 10px;
 }
+
+.new-user-form {
+  margin-left:auto;
+  margin-right:auto;
+  max-width: 300px;
+  background: #F7F7F7;
+  padding: 25px 15px 25px 10px;
+  font-size: 14px;
+  text-shadow: 1px 1px 1px rgb(255, 255, 255);
+  border:1px solid #e4e4e4; 
+}
+
+.form-title {
+  margin-left:auto;
+  margin-right:auto;
+  max-width: 200px;
+}
+
+.form-text {
+  font-size: 12px;
+  }
+
+.form {
+  margin-left: auto;
+  margin-right:auto;
+  max-width: 150px;
+  font-size: 13px;
+}
+
