@@ -154,9 +154,8 @@ a:active {
   }
   
   .show-img {
-    width: 100%;
-    max-width: 500px;
-    max-height: 900px;
+    width: 55%;
+    height: 55%;
   }
 
   .show-btns {
