@@ -1,26 +1,26 @@
 <div class="show-container">
     
     <h1><%= @favorite_artwork.artwork.title %></h1>
-        <p>
-            Artist: <%= @favorite_artwork.artwork.artist_name %><br>
-            Year: <%= @favorite_artwork.artwork.year %><br>
-            Gallery:  <%= @favorite_artwork.artwork.gallery %><br>
-            Medium: <%= @favorite_artwork.artwork.medium %><br>
-            Dimensions: <%= @favorite_artwork.artwork.dimensions %><br>
-            Price: $<%= @favorite_artwork.artwork.price %><br>
-        </p>
+    
+    <p>
+        <strong>Artist:</strong> <%= @favorite_artwork.artwork.artist_name %><br>
+        <strong>Year:</strong> <%= @favorite_artwork.artwork.year %><br>
+        <strong>Gallery:</strong>  <%= @favorite_artwork.artwork.gallery %><br>
+        <strong>Medium:</strong> <%= @favorite_artwork.artwork.medium %><br>
+        <strong>Dimensions:</strong> <%= @favorite_artwork.artwork.dimensions %><br>
+        <strong>Price:</strong> $<%= @favorite_artwork.artwork.price %><br> 
+    </p>    
 
-        <div class="show-btns">
-            <%= button_to "Remove from Favorites" , favorite_artwork_path, method: :delete, class: "submit-btn-lrg" %>
-        </div>
-        <div class="show-btns">
-            <%= button_to "Book A Viewing", new_appointment_path, method: :get, class: "submit-btn-lrg" %>
-        </div>
-        
-        <div class="show-img">
-            <p><img src=<%="#{@favorite_artwork.artwork.image_url}"%>></p>
-        </div>
+     <div class="show-btns">
+        <%= button_to "Remove from Favorites" , favorite_artwork_path, method: :delete, class: "submit-btn-lrg" %>
+    </div>
 
+    <div class="show-btns">
+        <%= button_to "Book a Viewing", new_appointment_path, method: :get, class: "submit-btn-lrg" %>
+    </div>
         
+    <div class="show-img">
+        <p><img src=<%="#{@favorite_artwork.artwork.image_url}"%>></p>
+    </div>
        
 </div>

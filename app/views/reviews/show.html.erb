@@ -1,25 +1,25 @@
 <div class="show-container">
     
     <h1><%= @review.artwork.title %></h1>
-        <p>
-            Artist: <%= @review.artwork.artist_name %><br>
-            Year: <%= @review.artwork.year %><br>
-            Gallery:  <%= @review.artwork.gallery %><br>
-            Medium: <%= @review.artwork.medium %><br>
-            Dimensions: <%= @review.artwork.dimensions %><br>
-            Price: $<%= @review.artwork.price %><br>
-        </p>
 
-        <div class="show-img">
-            <p><img src=<%="#{@review.artwork.image_url}"%>></p>
-        </div>
+    <p>
+        <strong>Artist:</strong> <%= @review.artwork.artist_name %><br>
+        <strong>Year:</strong> <%= @review.artwork.year %><br>
+        <strong>Gallery:</strong>  <%= @review.artwork.gallery %><br>
+        <strong>Medium:</strong> <%= @review.artwork.medium %><br>
+        <strong>Dimensions:</strong> <%= @review.artwork.dimensions %><br>
+        <strong>Price: $</strong><%= @review.artwork.price %><br>
+    </p>
 
-        <p>"<%= @review.text %>"</p>
-        <p>-<%= @review.user.first_name %></p>
-        <div class="show-btns">
-            <%= button_to "Delete Review" , review_path, method: :delete, class: "submit-btn-lrg" %>
-        </div>
+    <div class="show-img">
+        <p><img src=<%="#{@review.artwork.image_url}"%>></p>
+    </div>
 
-        
-       
+    <p><em>"<%= @review.text %>"</em> -<%= @review.user.first_name %></p>
+    <% if @current_user %>
+    <div class="show-btns">
+        <%= button_to "Delete Review" , review_path, method: :delete, class: "submit-btn-lrg" %>
+    </div>
+    <% end %>
+
 </div>
