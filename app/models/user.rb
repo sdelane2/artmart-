@@ -11,10 +11,11 @@ class User < ApplicationRecord
     validates :first_name, :last_name, presence: true 
 
     def status
-        if self.vip_status
-            puts "VIP"
+        if self.reviews.count >= 5
+            self.vip_status = true
+            "VIP Collector"
         else
-            puts "Collector"
+            "Pleeb"
         end
     end
 

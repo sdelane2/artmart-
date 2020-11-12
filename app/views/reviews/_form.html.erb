@@ -1,12 +1,12 @@
 <% if flash[:review_errors] %>
   <% flash[:review_errors].each do |error| %>
-    <p style="color:red;"><%= error %></p>
+    <p style="color:red"><%= error %></p>
   <% end %>
 <% end  %>
 
 <%= form_for([@artwork, review]) do |f| %>
-  <%= f.label "Recommend this artwork" %>
-
+  <%= f.label "Recommend this artwork" %>?
+  <br>
   Yes : <%= f.radio_button :recommend, true %> 
   No : <%= f.radio_button :recommend, false %>
   <p>Please write your review below:<br>

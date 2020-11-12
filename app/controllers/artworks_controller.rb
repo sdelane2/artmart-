@@ -5,6 +5,15 @@ class ArtworksController < ApplicationController
 
     def show
         @artwork = Artwork.find(params[:id])
+        @reviews = @artwork.reviews.each do |review|
+            {
+                text: review.text,
+                name: review.user.first_name,
+            }
+            review.text
+        end
+
+        render :show
     end
 
 end

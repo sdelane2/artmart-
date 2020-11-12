@@ -2,23 +2,15 @@
     <div class="show-name">
         <h1><%= @user.first_name %> <%= @user.last_name %> </h1>
     </div>
-    Status: Collector<br>
+    Status: <%= @user.status %><br>
     E-mail: <%= @user.email %>
-    
     <p>
         Art Viewing History: 
-
-        <ul>
-            <% @appointments.each do |appt|%>
-                <li>Artwork Title: <%= appt[:artwork] %> (<%= appt[:date] %> @ <%= appt[:time] %>)</li>
-            <% end %>
-        </ul>       
-
-        
-        <% @user.appointments do |appointment| %>
-            <%= appointment.artwork.title %>
-        <% end %>
+        <% @appointments.each do |appt|%>
+            <li><%= appt[:artwork] %> (<%= appt[:date] %> @ <%= appt[:time] %>)</li>
+        <% end %> 
     </p>
+    <br>
 
     <p>
         <div class="show-btns">
