@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'artworks#index'
-  resources :favorite_artworks, :users, :sessions, :appointments
+  resources :favorite_artworks, :users, :sessions, :appointments, :reviews
 
   resources :artworks do
   	resources :reviews, except: [:show, :index]

@@ -7,10 +7,10 @@
     <p>
     <strong>Art Viewing Appointments (<%= @appointments.count %>) <br></strong>
     <div class="show-appointment">
-        <% @appointments.each do |appt|%>
+        <% @current_user.appointments.each do |appt|%>
             <%= link_to appointment_path(appt) do %>
-                <%= appt[:artwork] %> (<%= appt[:date] %> @ <%= appt[:time] %>) <br>
-            <% end %>
+                <%=appt.artwork.title %>(<%= appt.date %> 
+            <% end%>
         <% end %> 
     </div>
     </p>
@@ -21,6 +21,9 @@
         </div>
         <div class="show-btns">
             <%= button_to "Delete Profile", destroy_user_path, method: :delete, class: "submit-btn-lrg" %>
+        </div>
+        <div class="index-btns">
+            <%= button_to "My Favorites" , favorite_artworks_path(@current_user), method: :get, class: "submit-btn-lrg" %>
         </div>
     </p>
 

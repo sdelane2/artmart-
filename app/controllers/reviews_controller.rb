@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     end
 
     def show
-        @review = Review.find(params)
+        @review = Review.find(params[:id])
     end
 
     def create
@@ -31,6 +31,12 @@ class ReviewsController < ApplicationController
         @review = Review.find(params[:id])
         @review.update
         redirect_to review_path(@review)
+    end
+
+    def destroy
+        @review = Review.find(params[:id])
+        @review.destroy 
+        redirect_to artwork_path
     end
 
     private
