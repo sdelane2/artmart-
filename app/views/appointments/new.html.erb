@@ -1,22 +1,29 @@
 <div class="show-container">
     <div class="new-user-form">
         <h3>Book A Viewing</h3>
-
         <%= form_for @appointment do |f| %>
 
-            <%= f.label :email %>:
+            <%= f.label :email %>
             <%= f.collection_select :user_id, User.where(id: @current_user.id), :id, :email %>
             <br>
-            <%= f.label :artwork %>:
-            <%= f.collection_select :artwork_id, Artwork.all, :id, :title, prompt: true %>
+            <%= f.label :artwork %>
+            <%= f.collection_select :artwork_id, Artwork.all, :id, :title, prompt: true %> 
             <br>
-            <%= f.label :date %>:
+            <%= f.label :date %>
             <%= f.date_field :date %>
             <br>
-            <%= f.label :time %>:
+            <%= f.label :time %>
             <%= f.time_field :time %>
             <br><br>
-            <%= f.submit %>
+            <%= f.submit "Book Viewing", class: "submit-btn" %>
         <% end %>
+
+
+        <% if flash[:appt_errors] %>
+            <% flash[:appt_errors].each do |error| %>
+                <p><%= error %></p>
+            <% end %>
+        <% end  %>
+
     </div>
 </div>

@@ -1,0 +1,22 @@
+<div class="show-container">
+    <div class="new-user-form">
+        <h3>Edit Viewing</h3>
+
+        <%= form_for @appointment do |f| %>
+
+            <%= f.label :email %>:
+            <%= f.collection_select :user_id, User.where(id: @current_user.id), :id, :email %>
+            <br>
+            <%= f.label :artwork %>:
+            <%= f.collection_select :artwork_id, Artwork.all, :id, :title, prompt: true %>
+            <br>
+            <%= f.label :date %>:
+            <%= f.date_field :date %>
+            <br>
+            <%= f.label :time %>:
+            <%= f.time_field :time %>
+            <br><br>
+            <%= f.submit, class: "submit-btn"  %>
+        <% end %>
+    </div>
+</div>

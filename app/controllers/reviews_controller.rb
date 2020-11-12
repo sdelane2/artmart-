@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
         if @review.save
             redirect_to @artwork
         else
+            flash[:review_errors] = @review.errors.full_messages
             render 'new'
         end
     end

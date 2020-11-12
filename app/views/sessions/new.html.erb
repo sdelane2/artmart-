@@ -1,28 +1,27 @@
 <div class="form-container">
-  <h3>Login</h3>
+<center><h3>Login</h3></center>
+    <div class="new-user-form">
+    <div class="form-login">
+      <div class="form">
+      <%= form_for(:session, url: login_path) do |f| %>
 
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+        <br>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        <p>
+        <%= f.submit "Log in", class: "submit-btn-lrg" %>
+        </p>
+      <% end %>
+
+      <p class="form-login"> New user? <%= link_to "Sign up now!", new_user_path %></p>
+
+      <% if flash[:login_error] %>
+      <p><%= flash[:login_error]%></p>
   
-  <div class="form-login">
+      <% end %>
 
-    <%= form_for(:session, url: login_path) do |f| %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.submit "Log in" %>
-    <% end %>
-
-    <% if flash[:login_error] %>
-     <p><%= flash[:login_error]%></p>
-  <% end %>
-
-
+      </div>
     </div>
-
-
-    <p class="form-login">New user? <%= link_to "Sign up now!", new_user_path %></p>
-  
 </div>

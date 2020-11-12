@@ -12,9 +12,6 @@ class UsersController < ApplicationController
             artwork: appt.artwork.title
           }
         end
-
-        
-
         render :show
     end
 

@@ -11,7 +11,10 @@
         </p>
 
         <div class="show-btns">
-            <%= button_to "Remove from Favorites" , favorite_artwork_path, method: :delete %>
+            <%= button_to "Remove from Favorites" , favorite_artwork_path, method: :delete, class: "submit-btn-lrg" %>
+        </div>
+        <div class="show-btns">
+            <%= button_to "Book A Viewing", new_appointment_path, method: :get, class: "submit-btn-lrg" %>
         </div>
         
         <div class="show-img">

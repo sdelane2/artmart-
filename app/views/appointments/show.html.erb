@@ -1,0 +1,19 @@
+<div class="show-container">
+    <h4>Appointment Details</h4>
+
+    <p><img src=<%="#{@appointment.artwork.image_url}"%>> </p>
+    <strong>Title:</strong> <%= @appointment.artwork.title %> <br>
+    <strong>Location:</strong> <%= @appointment.artwork.gallery %><br> 
+    <strong>Date:</strong> <%= @appointment.date.strftime('%B %-d, %Y') %><br>
+    <strong>Time:</strong> <%= @appointment.time.strftime('%l:%M %P') %>
+
+    <p>
+    <div class="show-btns">
+        <%= button_to "Edit Viewing" , edit_appointment_path, method: :get %>
+    </div>
+
+    <div class="show-btns">
+        <%= button_to "Remove Viewing" , appointment_path, method: :delete %>
+    </div>
+    </p>
+</div>
