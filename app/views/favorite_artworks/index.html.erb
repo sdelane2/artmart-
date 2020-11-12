@@ -1,0 +1,7 @@
+<div class="index-container">
+  <% @favorite_artworks.each do |artwork| %>
+    <div class="index-tile">
+      <h3><%= link_to (image_tag artwork.artwork.image_url, class: "index-img"), favorite_artwork_path(artwork.id) %></h3>
+    </div>
+  <% end %>
+</div>

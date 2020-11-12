@@ -1,17 +1,28 @@
 class FavoriteArtworksController < ApplicationController
     
+    def show
+        @favorite_artwork = FavoriteArtwork.find(params[:id])
+    end
+    
     def index
-        @favoriteartworks = FavoriteArtwork.all
+        @favorite_artworks = FavoriteArtwork.all
     end
     
     def new
-        @favoriteartwork = FavoriteArtwork.new
+        @favorite_artwork = FavoriteArtwork.new
     end
 
     def create
         @favorite_artwork = FavoriteArtwork.create(get_params)
         redirect_to user_path(@favorite_artwork.user)
     end
+
+    def destroy
+        @favorite_artwork = FavoriteArtwork.find(params[:id])
+        @favorite_artwork.destroy 
+        redirect_to favorite_artworks_path(@current_user)
+    end
+
 
 
     private

@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 2020_11_11_221939) do
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "availability"
   end
 
   create_table "favorite_artworks", force: :cascade do |t|
@@ -45,10 +44,10 @@ ActiveRecord::Schema.define(version: 2020_11_11_221939) do
   create_table "reviews", force: :cascade do |t|
     t.text "text"
     t.boolean "recommend"
+    t.integer "user_id"
+    t.integer "artwork_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "artwork_id"
-    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
