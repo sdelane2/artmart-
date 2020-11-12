@@ -5,13 +5,14 @@
     <strong>Status:</strong> <%= @user.status %><br>
     <strong>E-mail:</strong> <%= @user.email %>
     <p>
-    <strong>Art Viewing Appointments (<%= @appointments.count %>) <br></strong>
+    <strong>Art Viewing Appointments (<%= @user.appointments.count %>) <br></strong>
     <div class="show-appointment">
-        <% @appointments.each do |appt|%>
-            <%= link_to appointment_path(appt) do %>
-                <%= appt[:artwork] %> (<%= appt[:date] %> @ <%= appt[:time] %>) <br>
+        <% @user.sorted_appointments.each do |appointment|%>
+            <%= link_to appointment_path(appointment) do %>
+                <%= appointment.artwork.title %> - <%= appointment.date.strftime('%B %-d, %Y') %> @ <%= appointment.time.strftime('%l:%M %P')%> <br>
             <% end %>
         <% end %> 
+
     </div>
     </p>
 
