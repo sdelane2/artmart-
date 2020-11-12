@@ -14,7 +14,7 @@ class FavoriteArtworksController < ApplicationController
 
     def create
         @favorite_artwork = FavoriteArtwork.create(get_params)
-        redirect_to user_path(@favorite_artwork.user)
+        redirect_to favorite_artworks_path(@current_user)
     end
 
     def destroy

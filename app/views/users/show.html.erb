@@ -5,13 +5,14 @@
     <strong>Status:</strong> <%= @user.status %><br>
     <strong>E-mail:</strong> <%= @user.email %>
     <p>
-    <strong>Art Viewing Appointments (<%= @appointments.count %>) <br></strong>
+    <strong>Art Viewing Appointments (<%= @user.appointments.count %>) <br></strong>
     <div class="show-appointment">
-        <% @current_user.appointments.each do |appt|%>
-            <%= link_to appointment_path(appt) do %>
-                <%=appt.artwork.title %>(<%= appt.date %> 
-            <% end%>
+        <% @user.sorted_appointments.each do |appointment|%>
+            <%= link_to appointment_path(appointment) do %>
+                <%= appointment.artwork.title %> - <%= appointment.date.strftime('%B %-d, %Y') %> @ <%= appointment.time.strftime('%l:%M %P')%> <br>
+            <% end %>
         <% end %> 
+
     </div>
     </p>
 
@@ -22,8 +23,11 @@
         <div class="show-btns">
             <%= button_to "Delete Profile", destroy_user_path, method: :delete, class: "submit-btn-lrg" %>
         </div>
-        <div class="index-btns">
+        <div class="show-btns">
             <%= button_to "My Favorites" , favorite_artworks_path(@current_user), method: :get, class: "submit-btn-lrg" %>
+        </div>
+        <div class="show-btns">
+            <%= button_to "My Reviews" , reviews_path(@current_user), method: :get, class: "submit-btn-lrg" %>
         </div>
     </p>
 

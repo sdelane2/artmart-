@@ -19,4 +19,8 @@ class User < ApplicationRecord
         end
     end
 
+    def sorted_appointments
+        self.appointments.sort_by { |appt| appt.date }
+    end
+
 end

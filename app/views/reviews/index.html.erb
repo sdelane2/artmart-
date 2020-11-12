@@ -1,0 +1,7 @@
+<div class="index-container">
+  <% @reviews.each do |artwork| %>
+    <div class="index-tile">
+      <h3><%= link_to (image_tag artwork.artwork.image_url, class: "index-img"), review_path(artwork.id) %></h3>
+    </div>
+  <% end %>
+</div>

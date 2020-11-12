@@ -11,7 +11,7 @@
         </p>
 
         <div class="show-btns">
-            <%= button_to "Add to Favorites" , {:controller => 'favorite_artworks', :action => 'create', "favorite_artwork" => {:artwork_id => @artwork.id, :user_id => @current_user.id}}, method: :post, class: "submit-btn-lrg" %>
+            <%= button_to "Add to Favorites" ,  {:controller => 'favorite_artworks', :action => 'create', "favorite_artwork" => {:artwork_id => @artwork.id, :user_id => @current_user.id}}, method: :post, class: "submit-btn-lrg" %>
         </div>
         <div class="show-btns">
             <%= button_to "Review This Artwork", new_artwork_review_path(@artwork), method: :get, class: "submit-btn-lrg" %>
@@ -23,6 +23,13 @@
         <div class="show-img">
             <p><img src=<%="#{@artwork.image_url}"%>></p>
         </div>
+
+        
+        <%= link_to "Previous", @artwork.previous if @artwork.previous.present? %>
+       
+        
+        <%= link_to "Next", @artwork.next if @artwork.next.present? %>
+    
         
         <h6>Purchases made through viewings only.</h6>
         
