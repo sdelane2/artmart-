@@ -2,17 +2,16 @@ class ReviewsController < ApplicationController
     before_action :set_review, only: [:show, :edit, :update, :destroy]
     before_action :set_artwork, only: [ :new, :create]
 
-
-    def new
-        @review = Review.new
-    end
-
     def index
         @reviews = Review.all 
     end
 
     def show
-        @review = Review.find(params[:id])
+        @review = Review.find(params[:id]) 
+    end
+
+    def new
+        @review = Review.new
     end
 
     def create

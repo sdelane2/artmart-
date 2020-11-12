@@ -4,4 +4,9 @@
       <h3><%= link_to (image_tag artwork.artwork.image_url, class: "index-img"), favorite_artwork_path(artwork.id) %></h3>
     </div>
   <% end %>
+  
+  <% if @favorite_artworks.count <= 0 %>
+    You currently have no favorite art.
+  <% end %>
+  
 </div>

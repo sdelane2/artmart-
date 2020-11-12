@@ -1,43 +1,47 @@
 <div class="show-container">
     
     <h1><%= @artwork.title %></h1>
-        <p>
-            Artist: <%= @artwork.artist_name %><br>
-            Year: <%= @artwork.year %><br>
-            Gallery:  <%= @artwork.gallery %><br>
-            Medium: <%= @artwork.medium %><br>
-            Dimensions: <%= @artwork.dimensions %><br>
-            Price: $<%= @artwork.price %><br>
-        </p>
-
-        <div class="show-btns">
-            <%= button_to "Add to Favorites" ,  {:controller => 'favorite_artworks', :action => 'create', "favorite_artwork" => {:artwork_id => @artwork.id, :user_id => @current_user.id}}, method: :post, class: "submit-btn-lrg" %>
-        </div>
-        <div class="show-btns">
-            <%= button_to "Review This Artwork", new_artwork_review_path(@artwork), method: :get, class: "submit-btn-lrg" %>
-        </div>
-        <div class="show-btns">
-            <%= button_to "Book A Viewing", new_appointment_path, method: :get, class: "submit-btn-lrg" %>
-        </div>
-
-        <div class="show-img">
-            <p><img src=<%="#{@artwork.image_url}"%>></p>
-        </div>
-
-        
-        <%= link_to "Previous", @artwork.previous if @artwork.previous.present? %>
-       
-        
-        <%= link_to "Next", @artwork.next if @artwork.next.present? %>
     
-        
-        <h6>Purchases made through viewings only.</h6>
-        
-        <p><strong>Reviews (<%= @reviews.count %>) <br></strong>
-        <% @artwork.reviews.each do |review| %>
-            <p>"<%= review.text %>"</p>
-            <p>-<%= review.user.first_name %></p>
+    <p>
+        <strong>Artist:</strong> <%= @artwork.artist_name %><br>
+        <strong>Year:</strong> <%= @artwork.year %><br>
+        <strong>Gallery:</strong>  <%= @artwork.gallery %><br>
+        <strong>Medium:</strong> <%= @artwork.medium %><br>
+        <strong>Dimensions:</strong> <%= @artwork.dimensions %><br>
+        <strong>Price:</strong> $<%= @artwork.price %><br>
+    </p>
+
+    <div class="show-btns">
+        <%= button_to "Add to Favorites" ,  {:controller => 'favorite_artworks', :action => 'create', "favorite_artwork" => {:artwork_id => @artwork.id, :user_id => @current_user.id}}, method: :post, class: "submit-btn-lrg" %>
+    </div>
+    <div class="show-btns">
+        <%= button_to "Review This Artwork", new_artwork_review_path(@artwork), method: :get, class: "submit-btn-lrg" %>
+    </div>
+    <div class="show-btns">
+        <%= button_to "Book a Viewing", new_appointment_path, method: :get, class: "submit-btn-lrg" %>
+    </div>
+
+    <p><%= image_tag @artwork.image_url, class: "show-img" %></p>
+
+    <div class="show-btns">
+        <% if @artwork.previous.present? %>
+            <%= button_to "<<   previous", @artwork.previous, method: :get, class: "scan-btns"%>
         <% end %>
+    </div>
+
+    <div class="show-btns">
+        <% if @artwork.next.present? %>
+            <%= button_to "next   >>", @artwork.next, method: :get, class: "scan-btns"%>
+        <% end %>
+    </div>
+
+        
+    <h6>Purchases made through viewings only.</h6>
+        
+    <p><strong>Reviews (<%= @reviews.count %>) <br></strong>
+        <% @artwork.reviews.each do |review| %>
+            <p><em>"<%= review.text %>"</em> -<%= review.user.first_name %></p>
+    <% end %>
 
 </div>
 
