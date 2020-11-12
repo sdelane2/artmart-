@@ -1,14 +1,18 @@
 class ReviewsController < ApplicationController
     before_action :set_review, only: [:show, :edit, :update, :destroy]
-    before_action :set_artwork
+    before_action :set_artwork, only: [ :new, :create]
 
 
     def new
         @review = Review.new
     end
 
+    def index
+        @reviews = Review.all 
+    end
+
     def show
-        @review = Review.find(params)
+        @review = Review.find(params[:id])
     end
 
     def create
@@ -31,6 +35,11 @@ class ReviewsController < ApplicationController
         @review = Review.find(params[:id])
         @review.update
         redirect_to review_path(@review)
+    end
+
+    def destroy
+        @review.destroy 
+        redirect_to reviews_path
     end
 
     private

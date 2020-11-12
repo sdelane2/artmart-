@@ -50,4 +50,5 @@ class AppointmentsController < ApplicationController
       params.require(:appointment).permit(:artwork_id, :user_id, :date, :time)
     end
 
+
 end

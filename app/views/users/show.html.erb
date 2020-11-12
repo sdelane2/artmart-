@@ -22,6 +22,12 @@
         <div class="show-btns">
             <%= button_to "Delete Profile", destroy_user_path, method: :delete, class: "submit-btn-lrg" %>
         </div>
+        <div class="show-btns">
+            <%= button_to "My Favorites" , favorite_artworks_path(@current_user), method: :get, class: "submit-btn-lrg" %>
+        </div>
+        <div class="show-btns">
+            <%= button_to "My Reviews" , reviews_path(@current_user), method: :get, class: "submit-btn-lrg" %>
+        </div>
     </p>
 
 
