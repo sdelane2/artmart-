@@ -42,11 +42,8 @@ class UsersController < ApplicationController
 
     def destroy
         @user = User.find(params[:id])
-        if @user.valid?
-            session[:user_id] = @user.id 
             @user.destroy
             redirect_to artworks_path
-        end
     end
 
     private
