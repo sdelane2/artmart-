@@ -1,5 +1,30 @@
 <div class="form-container">
     <h1>Edit Profile</h1>
 
-    <%= render "form" %>
+    <div class="new-user-form">
+    <%= form_for @user do |f| %>
+        <div class="form">
+        <%= f.label :first_name %><br>
+        <%= f.text_field :first_name %>
+        <br>
+        <%= f.label :last_name %><br>
+        <%= f.text_field :last_name %>
+        <br>
+        <%= f.label :email %><br>
+        <%= f.email_field :email %>
+        <br>
+        <%= f.label :password %><br>
+        <%= f.password_field :password %>
+        
+        <p><%= f.submit "Edit Account", class: "submit-btn-lrg" %></p>
+
+        <% if flash[:user_errors] %>
+            <% flash[:user_errors].each do |error| %>
+            <%= error %>.<br>
+            <% end %>
+        <% end  %>
+
+    <% end %>
+    </div>
+
 </div>
