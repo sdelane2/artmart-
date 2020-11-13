@@ -4,4 +4,8 @@
       <h3><%= link_to (image_tag artwork.artwork.image_url, class: "index-img"), review_path(artwork.id) %></h3>
     </div>
   <% end %>
+
+  <% if @current_user.reviews.count <= 0 %>
+    You currently have no reviews. 
+  <% end %>
 </div>
